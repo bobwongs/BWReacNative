@@ -5,8 +5,9 @@ import {
     Text,
     TouchableHighlight,
     View,
-    ListView,
-    StyleSheet
+    FlatList,
+    StyleSheet,
+    TextInput,
 } from 'react-native';
 
 export default class AwesomeProject extends Component {
@@ -16,96 +17,94 @@ export default class AwesomeProject extends Component {
         initialRoute={{
           component: MyScene,
           title: 'Home',
-          rightButtonTitle: 'Add',
-          onRightButtonPress: () => this._rightButtonAction(),
           }}
         style={{flex: 1}}
       />
     );
   }
-
-  _rightButtonAction() {
-    // const nextRoute = {
-    //   component: MyScene,
-    //   title: 'Next Scene',
-    //   passProps: { myProp: 'bar' }
-    // };
-    this.props.navigator.push({
-      component: MyScene,
-      title: 'Next Scene',
-      passProps: { myProp: 'bar' }
-    });
-  }
 }
 
+var listData = ['one', 'two', 'three'];
+
 class MyScene extends Component {
+  _onPressButton() {
+    console.log('press');
+  }
+
+  _deleteAction() {
+    console.log('delete');
+  }
+
+  _renderItem = ({item}) => (
+    <View>
+      <Text style={styles.itemStyle}>{item}</Text>
+      <TouchableHighlight onPress={this._deleteAction}>
+        <Text style={styles.deleteBtn}>Delete</Text>
+      </TouchableHighlight>
+    </View>
+  );
+
   render() {
     return (
       <View style={styles.container}>
-        <TouchableHighlight onPress={this._handleNextPress}>
-          <Text style={styles.my_text}>Hello</Text>
+        <TextInput 
+        style={styles.textInputStyle} 
+        placeholder='Please input here!' 
+        />
+        <TouchableHighlight onPress={this._onPressButton}>
+          <Text style={styles.addBtn}>Add</Text>
         </TouchableHighlight>
+        <FlatList 
+          data={listData}
+          renderItem = {this._renderItem}
+        />
       </View>
     )
   }
-  
-  static propTypes = {
-    title: PropTypes.string.isRequired,
-    navigator: PropTypes.object.isRequired,
-  }
-
-  constructor(props, context) {
-    super(props, context);
-    this._onForward = this._onForward.bind(this);
-//    this._onBack = this._onBack.bind(this);
-
-    var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    this.state = {
-      dataSource: ds.cloneWithRows(['row 1', 'row 2']),
-    };
-  }
-
-  _onForward() {
-    this.props.navigator.push({
-      title: 'Scene ' + nextIndex,
-    });
-  }
-
-  _handleBackPress() {
-    this.props.navigator.pop();
-  }
-
-  // 待研究，如何在MyScene这个类中调到AwesomeProject.navigator
-  _handleNextPress() {
-    const nextRoute = {
-      component: MyScene,
-      title: 'Next Scene',
-      passProps: { myProp: 'bar' }
-    };
-    this.props.navigator.push(nextRoute);
-}
-
-  _pressAction() {
-    console.log('press action')
-  }
-
 }
 
 AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
 
 var styles = StyleSheet.create({
   container: {
-    // backgroundColor: '#00ff00',
-
-    alignItems: 'center',  // 让子元素“水平”居中对齐
-    justifyContent: 'center',  // 让子元素“垂直”居中对齐
     flex: 1,  // 垂直方向撑满屏幕
+    marginTop: 64,
+    // flexDirection: 'row',
   },
-  my_text: {
-    width: 100,
-    backgroundColor: 'orange',
-    fontSize: 20,
-    fontWeight:'bold',
-    textAlign: 'center',
+  textInputStyle: {
+    height: 40, 
+    backgroundColor: '#ffff45',
+    // position: 'inherit',
+  },
+  addBtn: {
+    width: 80,
+    height: 40,
+    backgroundColor: 'blue',
+  },
+  itemStyle: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
+  },
+  deleteBtn: {
+    width: 50,
+    height: 44,
+    backgroundColor: 'red'
   },
 });
+
+
+// container: {
+//     // backgroundColor: '#00ff00',
+
+//     alignItems: 'center',  // 让子元素“水平”居中对齐
+//     justifyContent: 'center',  // 让子元素“垂直”居中对齐
+//     flex: 1,  // 垂直方向撑满屏幕
+//   },
+//   my_text: {
+//     width: 100,
+//     backgroundColor: 'orange',
+//     fontSize: 20,
+//     fontWeight:'bold',
+//     textAlign: 'center',
+//   },
