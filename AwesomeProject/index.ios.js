@@ -36,8 +36,8 @@ class MyScene extends Component {
   }
 
   _renderItem = ({item}) => (
-    <View>
-      <Text style={styles.itemStyle}>{item}</Text>
+    <View style={styles.itemStyle}>
+      <Text style={styles.itemTextStyle}>{item}</Text>
       <TouchableHighlight onPress={this._deleteAction}>
         <Text style={styles.deleteBtn}>Delete</Text>
       </TouchableHighlight>
@@ -47,13 +47,16 @@ class MyScene extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TextInput 
+        <View style={styles.topView}>
+          <TextInput 
         style={styles.textInputStyle} 
         placeholder='Please input here!' 
         />
         <TouchableHighlight onPress={this._onPressButton}>
           <Text style={styles.addBtn}>Add</Text>
         </TouchableHighlight>
+        </View>
+
         <FlatList 
           data={listData}
           renderItem = {this._renderItem}
@@ -67,14 +70,18 @@ AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
 
 var styles = StyleSheet.create({
   container: {
-    flex: 1,  // 垂直方向撑满屏幕
+    // flex: 1,  // 垂直方向撑满屏幕
     marginTop: 64,
     // flexDirection: 'row',
+  },
+  topView: {
+    flex: 1,
+    flexDirection: 'row',
   },
   textInputStyle: {
     height: 40, 
     backgroundColor: '#ffff45',
-    // position: 'inherit',
+    flex: 1,
   },
   addBtn: {
     width: 80,
@@ -83,8 +90,12 @@ var styles = StyleSheet.create({
   },
   itemStyle: {
     padding: 10,
-    fontSize: 18,
     height: 44,
+    flex: 1,
+    flexDirection: 'row',
+  },
+  itemTextStyle: {
+    fontSize: 18,
   },
   deleteBtn: {
     width: 50,
