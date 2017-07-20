@@ -4,14 +4,22 @@ import {
     Text,
     TouchableHighlight,
     View,
-    FlatList,
+    ListView,
     StyleSheet,
     TextInput,
 } from 'react-native';
 
-var listData = ['one', 'two', 'three'];
-
 export default class AwesomeProject extends Component {
+  constructor() {
+    super()
+    this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.todoList = ['row 1', 'row 2', 'row 3']
+    this.state = {
+      dataSource: this.ds.cloneWithRows(this.todoList),
+      inputText: ''
+    };
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -22,43 +30,55 @@ export default class AwesomeProject extends Component {
           <TextInput 
         style={styles.textInputStyle} 
         placeholder='Please input here!' 
+        onChangeText={(text) => { this.setState({ inputText: text }) }}
         />
-        <TouchableHighlight style={styles.addBtnContainer} onPress={this._onPressButton}>
+        <TouchableHighlight style={styles.addBtnContainer} onPress={this._addAction.bind(this)}>
           <Text style={styles.addBtn}>Add</Text>
         </TouchableHighlight>
         </View>
-
-        <FlatList 
-          data={listData}
-          renderItem = {this._renderItem}
-        />
+        <ListView
+        dataSource={this.state.dataSource}
+        renderRow={this._renderRow.bind(this)}
+      />
       </View>
     )
   }
 
-  _onPressButton() {
+  _reloadList() {
+    this.setState({
+      dataSource: this.ds.cloneWithRows(this.todoList)
+    })
+  }
+
+  _addAction() {
     console.log('press');
+    this.todoList.push(this.inputText)
+    this._reloadList()
   }
 
-  _deleteAction() {
+  _deleteAction(index) {
     console.log('delete');
+    this.todoList.splice(index, 1)
+    this._reloadList()
   }
 
-  _renderItem = ({item}) => (
-    <View style={styles.cellContainer}>
-      <Text style={styles.cellText}>{item}</Text>
-      <TouchableHighlight onPress={this._deleteAction}>
-        <Text style={styles.cellDeleteBtn}>Delete</Text>
-      </TouchableHighlight>
-    </View>
-  );
+  _renderRow(rowData, sectionID, index) {
+    return (
+      <View style={styles.cellContainer}>
+        <Text style={styles.cellText}>{rowData}</Text>
+        <TouchableHighlight onPress={this._deleteAction.bind(this, index)}>
+          <Text style={styles.cellDeleteBtn}>Delete</Text>
+        </TouchableHighlight>
+      </View>
+    );
+  }
 }
 
 AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
 
 var styles = StyleSheet.create({
   container: {
-    flex: 1,  // 如果没设flexDirection，则默认为垂直方向撑满屏幕，如果遇到有宽/高的设死的View则会撑满到该View
+    flex: 1,  // 自身在父容器中的宽高占比，如果没设flexDirection，则默认为垂直方向撑满屏幕，如果遇到有宽/高的设死的View则会撑满到该View
     // backgroundColor: 'orange',
     // alignItems: 'center',  // 在垂直于flexDirection方向的子控件布局方式
     // justifyContent: 'center',  // flexDirection方向的子控件布局方式
@@ -74,7 +94,7 @@ var styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   inputContainer: {
-    // flex: 1,  // 在此不用设置flex为1，会撑大高度，而不用设死的高度，可能外部的布局有影响
+    // flex: 1,  // 在此不用设置flex为1，会撑大高度，当设有高度为定值时，不要使用flex，此时会把高度撑高
     flexDirection: 'row',
     height: 40, 
     backgroundColor: 'green',
