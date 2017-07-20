@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import {
     AppRegistry,
-    NavigatorIOS,
     Text,
     TouchableHighlight,
     View,
@@ -10,49 +9,21 @@ import {
     TextInput,
 } from 'react-native';
 
+var listData = ['one', 'two', 'three'];
+
 export default class AwesomeProject extends Component {
   render() {
     return (
-      <NavigatorIOS
-        initialRoute={{
-          component: MyScene,
-          title: 'Home',
-          }}
-        style={{flex: 1}}
-      />
-    );
-  }
-}
-
-var listData = ['one', 'two', 'three'];
-
-class MyScene extends Component {
-  _onPressButton() {
-    console.log('press');
-  }
-
-  _deleteAction() {
-    console.log('delete');
-  }
-
-  _renderItem = ({item}) => (
-    <View style={styles.itemStyle}>
-      <Text style={styles.itemTextStyle}>{item}</Text>
-      <TouchableHighlight onPress={this._deleteAction}>
-        <Text style={styles.deleteBtn}>Delete</Text>
-      </TouchableHighlight>
-    </View>
-  );
-
-  render() {
-    return (
       <View style={styles.container}>
-        <View style={styles.topView}>
+        <View style={styles.titleBar}>
+          <Text style={styles.titleText}>To Do List</Text>
+        </View>
+        <View style={styles.inputContainer}>
           <TextInput 
         style={styles.textInputStyle} 
         placeholder='Please input here!' 
         />
-        <TouchableHighlight onPress={this._onPressButton}>
+        <TouchableHighlight style={styles.addBtnContainer} onPress={this._onPressButton}>
           <Text style={styles.addBtn}>Add</Text>
         </TouchableHighlight>
         </View>
@@ -64,58 +35,81 @@ class MyScene extends Component {
       </View>
     )
   }
+
+  _onPressButton() {
+    console.log('press');
+  }
+
+  _deleteAction() {
+    console.log('delete');
+  }
+
+  _renderItem = ({item}) => (
+    <View style={styles.cellContainer}>
+      <Text style={styles.cellText}>{item}</Text>
+      <TouchableHighlight onPress={this._deleteAction}>
+        <Text style={styles.cellDeleteBtn}>Delete</Text>
+      </TouchableHighlight>
+    </View>
+  );
 }
 
 AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
 
 var styles = StyleSheet.create({
   container: {
-    // flex: 1,  // 垂直方向撑满屏幕
-    marginTop: 64,
-    // flexDirection: 'row',
+    flex: 1,  // 如果没设flexDirection，则默认为垂直方向撑满屏幕，如果遇到有宽/高的设死的View则会撑满到该View
+    // backgroundColor: 'orange',
+    // alignItems: 'center',  // 在垂直于flexDirection方向的子控件布局方式
+    // justifyContent: 'center',  // flexDirection方向的子控件布局方式
   },
-  topView: {
-    flex: 1,
+  titleBar: {
+    backgroundColor: 'green',
+    height: 64,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  titleText: {
+    textDecorationLine: 'underline', 
+    backgroundColor: 'white',
+  },
+  inputContainer: {
+    // flex: 1,  // 在此不用设置flex为1，会撑大高度，而不用设死的高度，可能外部的布局有影响
     flexDirection: 'row',
+    height: 40, 
+    backgroundColor: 'green',
   },
   textInputStyle: {
-    height: 40, 
     backgroundColor: '#ffff45',
-    flex: 1,
+    flex: 1,  // 设置flex，撑满，或者撑到写死宽高的容器，在这种情况下要设flex
+    flexDirection: 'row',
+    paddingLeft: 10,
+  },
+  addBtnContainer: {
+    width: 80,
+    backgroundColor: 'blue',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   addBtn: {
-    width: 80,
-    height: 40,
-    backgroundColor: 'blue',
+    backgroundColor: 'white',
   },
-  itemStyle: {
-    padding: 10,
+  cellContainer: {
+    flexDirection: 'row',
     height: 44,
+    padding: 10,
+    // backgroundColor: 'white',
+    alignItems: 'center',
+    borderBottomWidth: 0.5,
+  },
+  cellText: {
     flex: 1,
     flexDirection: 'row',
-  },
-  itemTextStyle: {
     fontSize: 18,
+    // backgroundColor: 'purple',
   },
-  deleteBtn: {
+  cellDeleteBtn: {
     width: 50,
-    height: 44,
-    backgroundColor: 'red'
+    // backgroundColor: 'red',
   },
 });
-
-
-// container: {
-//     // backgroundColor: '#00ff00',
-
-//     alignItems: 'center',  // 让子元素“水平”居中对齐
-//     justifyContent: 'center',  // 让子元素“垂直”居中对齐
-//     flex: 1,  // 垂直方向撑满屏幕
-//   },
-//   my_text: {
-//     width: 100,
-//     backgroundColor: 'orange',
-//     fontSize: 20,
-//     fontWeight:'bold',
-//     textAlign: 'center',
-//   },
