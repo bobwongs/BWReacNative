@@ -1,0 +1,22 @@
+platform :ios, '8.0'
+
+target 'BWHybridApp' do
+  
+  pod 'Masonry', '~> 1.0.2'
+  pod 'AFNetworking', '~> 3.1.0'
+  pod 'SDWebImage', '~> 4.0.0'
+  
+  # Your 'node_modules' directory is probably in the root of your project,
+  # but if not, adjust the `:path` accordingly
+  pod 'React', :path => '../node_modules/react-native', :subspecs => [
+  'Core',
+  'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
+  'RCTText',
+  'RCTNetwork',
+  'RCTWebSocket', # needed for debugging
+  ]
+  
+  # Explicitly include Yoga if you are using RN >= 0.42.0
+  pod 'Yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+
+end
