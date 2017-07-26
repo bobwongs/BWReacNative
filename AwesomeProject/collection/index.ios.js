@@ -26,7 +26,7 @@ export default class AwesomeProject extends Component {
       <View style={styles.container}>
         <View style={styles.inputContainer}>
           <TextInput onChangeText={(text) => { this.setState({ inputText: text }) }} multiline={true} placeholder='请输入事项' style={styles.input} />
-          <Button title='添加' onPress={this.addRow.bind(this)}></Button>
+          <Button title='添加' onPress={this._addRow.bind(this)}></Button>
         </View>
         <ListView
           dataSource={this.state.dataSource}
@@ -39,7 +39,7 @@ export default class AwesomeProject extends Component {
   // 单条数据视图
   _renderRow(rowData, sectionId, index) {
     return (
-      <TouchableOpacity style={styles.row} onPress={this.finishRow.bind(this, index)}>
+      <TouchableOpacity style={styles.row}>
         <Text style={[styles.rowText, { textDecorationLine: rowData.isFinish ? 'line-through' : 'none' }]}>{rowData.text}</Text>
         <Button onPress={this.deleteRow.bind(this,index)} title='删除'></Button>
       </TouchableOpacity>
@@ -52,17 +52,16 @@ export default class AwesomeProject extends Component {
     })
   }
   // 添加当条数据
-  addRow() {
-    this.todoList.push({ text: this.state.inputText, isFinish: false })
+  _addRow() {
+    console.log('hi' + this.state.inputText)
+    console.log('hello')
+    this.todoList.push({ text: this.state.inputText })
     this._renderList()
   }
   deleteRow(index) {
     // 删除数组内元素
+    console.log('hello')
     this.todoList.splice(index, 1)
-    this._renderList()
-  }
-  finishRow(index) {
-    this.todoList[index].isFinish = true
     this._renderList()
   }
 }

@@ -14,9 +14,9 @@ export default class AwesomeProject extends Component {
     super()
     this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.todoList = ['row 1', 'row 2', 'row 3']
+    this.inputText = ''
     this.state = {
-      dataSource: this.ds.cloneWithRows(this.todoList),
-      inputText: ''
+      dataSource: this.ds.cloneWithRows(this.todoList)
     };
   }
 
@@ -30,7 +30,7 @@ export default class AwesomeProject extends Component {
           <TextInput 
         style={styles.textInputStyle} 
         placeholder='Please input here!' 
-        onChangeText={(text) => { this.setState({ inputText: text }) }}
+        onChangeText={(text) => { this.inputText = text }}
         />
         <TouchableHighlight style={styles.addBtnContainer} onPress={this._addAction.bind(this)}>
           <Text style={styles.addBtn}>Add</Text>
@@ -39,6 +39,7 @@ export default class AwesomeProject extends Component {
         <ListView
         dataSource={this.state.dataSource}
         renderRow={this._renderRow.bind(this)}
+        enableEmptySections={true}
       />
       </View>
     )
