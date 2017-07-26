@@ -1,88 +1,121 @@
 import React, { Component, PropTypes } from 'react';
 import {
     AppRegistry,
+    NavigatorIOS,
     Text,
     TouchableHighlight,
     View,
-    ListView,
+    FlatList,
     StyleSheet,
     TextInput,
 } from 'react-native';
-import { StackNavigator, TabNavigator } from 'react-navigation';
 
-class RecentChatsScreen extends React.Component {
+export default class AwesomeProject extends Component {
   render() {
-    return <Text>List of recent chats</Text>
+    return (
+      <NavigatorIOS
+        initialRoute={{
+          component: MyScene,
+          title: 'Home',
+          }}
+        style={{flex: 1}}
+      />
+    );
   }
 }
 
-class AllContactsScreen extends React.Component {
+var listData = ['one', 'two', 'three'];
+
+class MyScene extends Component {
+  _onPressButton() {
+    console.log('press');
+  }
+
+  _deleteAction() {
+    console.log('delete');
+  }
+
+  _renderItem = ({item}) => (
+    <View style={styles.itemStyle}>
+      <Text style={styles.itemTextStyle}>{item}</Text>
+      <TouchableHighlight onPress={this._deleteAction}>
+        <Text style={styles.deleteBtn}>Delete</Text>
+      </TouchableHighlight>
+    </View>
+  );
+
   render() {
-    return <Text>List of all contacts</Text>
+    return (
+      <View style={styles.container}>
+        <View style={styles.topView}>
+          <TextInput 
+        style={styles.textInputStyle} 
+        placeholder='Please input here!' 
+        />
+        <TouchableHighlight onPress={this._onPressButton}>
+          <Text style={styles.addBtn}>Add</Text>
+        </TouchableHighlight>
+        </View>
+
+        <FlatList 
+          data={listData}
+          renderItem = {this._renderItem}
+        />
+      </View>
+    )
   }
 }
-
-const AwesomeProject = TabNavigator({
-  Recent: { screen: RecentChatsScreen },
-  All: { screen: AllContactsScreen },
-});
 
 AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
 
 var styles = StyleSheet.create({
   container: {
-    flex: 1,  // 自身在父容器中的宽高占比，如果没设flexDirection，则默认为垂直方向撑满屏幕，如果遇到有宽/高的设死的View则会撑满到该View
-    // backgroundColor: 'orange',
-    // alignItems: 'center',  // 在垂直于flexDirection方向的子控件布局方式
-    // justifyContent: 'center',  // flexDirection方向的子控件布局方式
+    // flex: 1,  // 垂直方向撑满屏幕
+    marginTop: 64,
+    // flexDirection: 'row',
   },
-  titleBar: {
-    backgroundColor: 'green',
-    height: 64,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  titleText: {
-    textDecorationLine: 'underline', 
-    backgroundColor: 'white',
-  },
-  inputContainer: {
-    // flex: 1,  // 在此不用设置flex为1，会撑大高度，当设有高度为定值时，不要使用flex，此时会把高度撑高
-    flexDirection: 'row',
-    height: 40, 
-    backgroundColor: 'green',
-  },
-  textInputStyle: {
-    backgroundColor: '#ffff45',
-    flex: 1,  // 设置flex，撑满，或者撑到写死宽高的容器，在这种情况下要设flex
-    flexDirection: 'row',
-    paddingLeft: 10,
-  },
-  addBtnContainer: {
-    width: 80,
-    backgroundColor: 'blue',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  addBtn: {
-    backgroundColor: 'white',
-  },
-  cellContainer: {
-    flexDirection: 'row',
-    height: 44,
-    padding: 10,
-    // backgroundColor: 'white',
-    alignItems: 'center',
-    borderBottomWidth: 0.5,
-  },
-  cellText: {
+  topView: {
     flex: 1,
     flexDirection: 'row',
-    fontSize: 18,
-    // backgroundColor: 'purple',
   },
-  cellDeleteBtn: {
+  textInputStyle: {
+    height: 40, 
+    backgroundColor: '#ffff45',
+    flex: 1,
+  },
+  addBtn: {
+    width: 80,
+    height: 40,
+    backgroundColor: 'blue',
+  },
+  itemStyle: {
+    padding: 10,
+    height: 44,
+    flex: 1,
+    flexDirection: 'row',
+  },
+  itemTextStyle: {
+    fontSize: 18,
+  },
+  deleteBtn: {
     width: 50,
-    // backgroundColor: 'red',
+    height: 44,
+    backgroundColor: 'red'
   },
 });
+
+
+// container: {
+//     // backgroundColor: '#00ff00',
+
+//     alignItems: 'center',  // 让子元素“水平”居中对齐
+//     justifyContent: 'center',  // 让子元素“垂直”居中对齐
+//     flex: 1,  // 垂直方向撑满屏幕
+//   },
+//   my_text: {
+//     width: 100,
+//     backgroundColor: 'orange',
+//     fontSize: 20,
+//     fontWeight:'bold',
+//     textAlign: 'center',
+//   },

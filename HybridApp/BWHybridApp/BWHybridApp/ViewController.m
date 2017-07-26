@@ -23,10 +23,15 @@
 }
 
 - (IBAction)presentNative:(id)sender {
+    [self presentViewController:[[self class] nativeVCWithTitle:@"PresentedNative"] animated:YES completion:nil];
+}
+
+- (IBAction)presentReactNative:(id)sender {
     UIViewController *vc = [[self class] nativeVCWithTitle:@"PresentedNative"];
     
     NSURL *jsCodeLocation;
-    jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
+//    jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
+    jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios"];
     
     RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                         moduleName:@"AwesomeProject"
@@ -36,10 +41,6 @@
     
     vc.view = rootView;
     [self presentViewController:vc animated:YES completion:nil];
-}
-
-- (IBAction)presentReactNative:(id)sender {
-    
 }
 
 - (IBAction)pushNative:(id)sender {
@@ -53,7 +54,12 @@
 + (UIViewController *)nativeVCWithTitle:(NSString *)title {
     UIViewController *vc = [UIViewController new];
     vc.title = title;
+    vc.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemUndo target:self action:@selector(dismissVC)];
     return vc;
+}
+
+- (void)dismissVC {
+    [[UIApplication sharedApplication].keyWindow.rootViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
