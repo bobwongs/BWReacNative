@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+#import <React/RCTBridgeModule.h>
+
+@interface ViewController : UIViewController<RCTBridgeModule>
 
 
 @end

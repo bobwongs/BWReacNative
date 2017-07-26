@@ -8,6 +8,7 @@ import {
     FlatList,
     StyleSheet,
     TextInput,
+    NativeModules,
 } from 'react-native';
 
 export default class AwesomeProject extends Component {
@@ -29,6 +30,9 @@ var listData = ['one', 'two', 'three'];
 class MyScene extends Component {
   _onPressButton() {
     console.log('press');
+
+    var vc = NativeModules.ViewController;
+    vc.dismissReactNativeVC()
   }
 
   _deleteAction() {
