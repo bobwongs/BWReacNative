@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		399593A6199D32574142D73A /* libPods-BWHybridApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CE9176C9B2D6EEB2F3E1E86 /* libPods-BWHybridApp.a */; };
+		B4A4894B1F2B2FD7003A8C39 /* RNTMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A4894A1F2B2FD7003A8C39 /* RNTMapManager.m */; };
+		B4A4894E1F2B3105003A8C39 /* BWView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A4894D1F2B3105003A8C39 /* BWView.m */; };
 		B4B0A6491F2861ED000E0293 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0A6481F2861ED000E0293 /* main.m */; };
 		B4B0A64C1F2861ED000E0293 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0A64B1F2861ED000E0293 /* AppDelegate.m */; };
 		B4B0A64F1F2861ED000E0293 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0A64E1F2861ED000E0293 /* ViewController.m */; };
@@ -38,6 +40,10 @@
 /* Begin PBXFileReference section */
 		4930BE97306E9B2F040AE11C /* Pods-BWHybridApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BWHybridApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BWHybridApp/Pods-BWHybridApp.release.xcconfig"; sourceTree = "<group>"; };
 		7CE9176C9B2D6EEB2F3E1E86 /* libPods-BWHybridApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BWHybridApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4A489491F2B2FD7003A8C39 /* RNTMapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNTMapManager.h; sourceTree = "<group>"; };
+		B4A4894A1F2B2FD7003A8C39 /* RNTMapManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNTMapManager.m; sourceTree = "<group>"; };
+		B4A4894C1F2B3105003A8C39 /* BWView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWView.h; sourceTree = "<group>"; };
+		B4A4894D1F2B3105003A8C39 /* BWView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWView.m; sourceTree = "<group>"; };
 		B4B0A6441F2861ED000E0293 /* BWHybridApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BWHybridApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4B0A6481F2861ED000E0293 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B4B0A64A1F2861ED000E0293 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -121,6 +127,10 @@
 				B4B0A64B1F2861ED000E0293 /* AppDelegate.m */,
 				B4B0A64D1F2861ED000E0293 /* ViewController.h */,
 				B4B0A64E1F2861ED000E0293 /* ViewController.m */,
+				B4A489491F2B2FD7003A8C39 /* RNTMapManager.h */,
+				B4A4894A1F2B2FD7003A8C39 /* RNTMapManager.m */,
+				B4A4894C1F2B3105003A8C39 /* BWView.h */,
+				B4A4894D1F2B3105003A8C39 /* BWView.m */,
 				B4B0A6501F2861ED000E0293 /* Main.storyboard */,
 				B4B0A6531F2861ED000E0293 /* Assets.xcassets */,
 				B4B0A6471F2861ED000E0293 /* Supporting Files */,
@@ -357,6 +367,8 @@
 				B4B0A64F1F2861ED000E0293 /* ViewController.m in Sources */,
 				B4B0A64C1F2861ED000E0293 /* AppDelegate.m in Sources */,
 				B4B0A6491F2861ED000E0293 /* main.m in Sources */,
+				B4A4894B1F2B2FD7003A8C39 /* RNTMapManager.m in Sources */,
+				B4A4894E1F2B3105003A8C39 /* BWView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

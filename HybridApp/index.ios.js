@@ -1,13 +1,12 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import {
     AppRegistry,
     NavigatorIOS,
     Text,
     TouchableHighlight,
+    TouchableOpacity,
     View,
-    FlatList,
     StyleSheet,
-    TextInput,
     NativeModules,
 } from 'react-native';
 
@@ -17,7 +16,7 @@ export default class AwesomeProject extends Component {
       <NavigatorIOS
         initialRoute={{
           component: MyScene,
-          title: 'Home',
+          title: 'React Native',
           }}
         style={{flex: 1}}
       />
@@ -25,48 +24,19 @@ export default class AwesomeProject extends Component {
   }
 }
 
-var listData = ['one', 'two', 'three'];
-
 class MyScene extends Component {
-  _onPressButton() {
-    console.log('press');
-
-    var vc = NativeModules.ViewController;
-    vc.dismissReactNativeVC()
-  }
-
-  _deleteAction() {
-    console.log('delete');
-  }
-
-  _renderItem = ({item}) => (
-    <View style={styles.itemStyle}>
-      <Text style={styles.itemTextStyle}>{item}</Text>
-      <TouchableHighlight onPress={this._deleteAction}>
-        <Text style={styles.deleteBtn}>Delete</Text>
-      </TouchableHighlight>
-    </View>
-  );
-
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.topView}>
-          <TextInput 
-        style={styles.textInputStyle} 
-        placeholder='Please input here!' 
-        />
-        <TouchableHighlight onPress={this._onPressButton}>
-          <Text style={styles.addBtn}>Add</Text>
-        </TouchableHighlight>
-        </View>
+      <TouchableOpacity style={styles.dismissView} onPress={this._onPressButton.bind(this)}>
+        <Text>Dismiss React Native</Text>
+      </TouchableOpacity>
+    );
+  }
 
-        <FlatList 
-          data={listData}
-          renderItem = {this._renderItem}
-        />
-      </View>
-    )
+  _onPressButton() {
+    // 调用原生模块，方法名和原生的模块参数名一直，如果需要传参，则参数顺序与原生的参数顺序保持一致
+    var vc = NativeModules.ViewController
+    vc.dismissReactNativeVC()
   }
 }
 
@@ -77,49 +47,14 @@ var styles = StyleSheet.create({
     // flex: 1,  // 垂直方向撑满屏幕
     marginTop: 64,
     // flexDirection: 'row',
+    backgroundColor: 'white',
   },
-  topView: {
-    flex: 1,
+  dismissView: {
+    marginTop: 64 + 20,
     flexDirection: 'row',
-  },
-  textInputStyle: {
-    height: 40, 
-    backgroundColor: '#ffff45',
-    flex: 1,
-  },
-  addBtn: {
-    width: 80,
     height: 40,
-    backgroundColor: 'blue',
-  },
-  itemStyle: {
-    padding: 10,
-    height: 44,
-    flex: 1,
-    flexDirection: 'row',
-  },
-  itemTextStyle: {
-    fontSize: 18,
-  },
-  deleteBtn: {
-    width: 50,
-    height: 44,
-    backgroundColor: 'red'
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white',
   },
 });
-
-
-// container: {
-//     // backgroundColor: '#00ff00',
-
-//     alignItems: 'center',  // 让子元素“水平”居中对齐
-//     justifyContent: 'center',  // 让子元素“垂直”居中对齐
-//     flex: 1,  // 垂直方向撑满屏幕
-//   },
-//   my_text: {
-//     width: 100,
-//     backgroundColor: 'orange',
-//     fontSize: 20,
-//     fontWeight:'bold',
-//     textAlign: 'center',
-//   },

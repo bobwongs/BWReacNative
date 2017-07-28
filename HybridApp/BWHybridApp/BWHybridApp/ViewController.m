@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "RNTMapManager.h"
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -17,7 +18,10 @@
 
 @implementation ViewController
 
-RCT_EXPORT_MODULE();
+
+/* ---------- RN调Native，Export方法供RN进行调用 ---------- */
+
+RCT_EXPORT_MODULE()
 
 RCT_EXPORT_METHOD(addEvent:(NSString *)name)
 {
@@ -29,9 +33,20 @@ RCT_EXPORT_METHOD(dismissReactNativeVC)
     [[UIApplication sharedApplication].keyWindow.rootViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
+/* ---------- RN调Native ---------- */
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+        button.frame = CGRectMake(20, 30, 200, 30);
+        [button setTitle:@"Native invoke RN" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(nativeInvokeRN) forControlEvents:UIControlEventTouchUpInside];
+        [[UIApplication sharedApplication].keyWindow addSubview:button];
+    });
 }
 
 - (IBAction)presentNative:(id)sender {
@@ -45,7 +60,7 @@ RCT_EXPORT_METHOD(dismissReactNativeVC)
     
     NSURL *jsCodeLocation;
 //    jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
-    jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios"];
+    jsCodeLocation = [NSURL URLWithString:@"http://10.2.146.121:8081/index.ios.bundle?platform=ios"];
     
     RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                         moduleName:@"AwesomeProject"
@@ -53,8 +68,19 @@ RCT_EXPORT_METHOD(dismissReactNativeVC)
                                                      launchOptions:nil];
     rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
     
+    UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    CGPointMake(CGRectGetWidth([UIScreen mainScreen].bounds) / 2.0, CGRectGetWidth([UIScreen mainScreen].bounds) / 2.0);
+    indicatorView.color = [UIColor lightGrayColor];
+    [indicatorView startAnimating];
+    
+    rootView.loadingView = indicatorView;
+    
     vc.view = rootView;
     [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (void)nativeInvokeRN {
+    [[RNTMapManager new] changeText];
 }
 
 - (IBAction)pushNative:(id)sender {
