@@ -10,4 +10,15 @@
 
 @implementation BWReactNativeBridge
 
+RCT_EXPORT_MODULE();
+
+- (NSArray<NSString *> *)supportedEvents
+{
+    return @[@"EventReminder"];
+}
+
+- (void)sendEventToRN {
+    [self sendEventWithName:@"EventReminder" body:@{@"name": @"Event from native"}];
+}
+
 @end

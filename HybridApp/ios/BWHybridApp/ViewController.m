@@ -8,11 +8,13 @@
 
 #import "ViewController.h"
 #import "RNTMapManager.h"
+#import "BWReactNativeBridge.h"
 
+#import <React/RCTBridgeModule.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 
-@interface ViewController ()
+@interface ViewController () <RCTBridgeModule>
 
 @end
 
@@ -80,7 +82,7 @@ RCT_EXPORT_METHOD(dismissReactNativeVC)
 }
 
 - (void)nativeInvokeRN {
-    [[RNTMapManager new] changeText];
+    [[BWReactNativeBridge new] sendEventToRN];
 }
 
 - (IBAction)pushNative:(id)sender {

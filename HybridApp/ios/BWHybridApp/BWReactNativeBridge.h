@@ -6,8 +6,11 @@
 //  Copyright © 2017年 BobWongStudio. All rights reserved.
 //
 
-#import <React/React.h>
+#import <React/RCTEventEmitter.h>
+#import <React/RCTBridgeModule.h>
 
-@interface BWReactNativeBridge : RCTEventEmitter
+@interface BWReactNativeBridge : RCTEventEmitter<RCTBridgeModule>
+
+- (void)sendEventToRN;
 
 @end

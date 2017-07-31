@@ -8,7 +8,19 @@ import {
     View,
     StyleSheet,
     NativeModules,
+    NativeEventEmitter,
 } from 'react-native';
+const { CalendarManager } = NativeModules;
+
+const calendarManagerEmitter = new NativeEventEmitter(CalendarManager);
+
+const subscription = calendarManagerEmitter.addListener(
+  'EventReminder',
+  (reminder) => console.log(reminder.name)
+);
+
+// Don't forget to unsubscribe, typically in componentWillUnmount
+// subscription.remove();
 
 export default class AwesomeProject extends Component {
   render() {
