@@ -15,7 +15,6 @@ target 'BWHybridApp' do
   'RCTNetwork',
   'RCTWebSocket', # needed for debugging
   'RCTImage',
-  'RCTPushNotification',
   ]
   
   # Explicitly include Yoga if you are using RN >= 0.42.0

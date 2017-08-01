@@ -16,6 +16,8 @@
 
 @interface ViewController () <RCTBridgeModule>
 
+@property (strong, nonatomic) BWReactNativeBridge *rnBridge;
+
 @end
 
 @implementation ViewController
@@ -82,7 +84,11 @@ RCT_EXPORT_METHOD(dismissReactNativeVC)
 }
 
 - (void)nativeInvokeRN {
-    [[BWReactNativeBridge new] sendEventToRN];
+    if (!self.rnBridge) {
+        self.rnBridge = [[BWReactNativeBridge alloc] init];
+    }
+    
+    [self.rnBridge sendEventToRN];
 }
 
 - (IBAction)pushNative:(id)sender {

@@ -7,16 +7,16 @@ import {
     TouchableOpacity,
     View,
     StyleSheet,
-    NativeModules,
     NativeEventEmitter,
+    NativeModules,
 } from 'react-native';
-const { CalendarManager } = NativeModules;
+const { BWReactNativeBridge } = NativeModules;
 
-const calendarManagerEmitter = new NativeEventEmitter(CalendarManager);
+const calendarManagerEmitter = new NativeEventEmitter(BWReactNativeBridge);
 
 const subscription = calendarManagerEmitter.addListener(
-  'EventReminder',
-  (reminder) => console.log(reminder.name)
+  'sayHello',
+  (reminder) => console.log(reminder)
 );
 
 // Don't forget to unsubscribe, typically in componentWillUnmount

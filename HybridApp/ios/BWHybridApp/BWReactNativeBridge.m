@@ -10,15 +10,24 @@
 
 @implementation BWReactNativeBridge
 
++ (id)allocWithZone:(NSZone *)zone {
+    static id sharedInstance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [super allocWithZone:zone];
+    });
+    return sharedInstance;
+}
+
 RCT_EXPORT_MODULE();
 
 - (NSArray<NSString *> *)supportedEvents
 {
-    return @[@"EventReminder"];
+    return @[@"sayHello"];
 }
 
 - (void)sendEventToRN {
-    [self sendEventWithName:@"EventReminder" body:@{@"name": @"Event from native"}];
+    [self sendEventWithName:@"sayHello" body:@"Hello"];
 }
 
 @end
