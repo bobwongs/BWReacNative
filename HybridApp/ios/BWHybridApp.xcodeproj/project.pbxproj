@@ -8,16 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		B4A4079D1F2F28D70064B88B /* BWReactNativeBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A4079C1F2F28D70064B88B /* BWReactNativeBridge.m */; };
-		B4A4894B1F2B2FD7003A8C39 /* RNTMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A4894A1F2B2FD7003A8C39 /* RNTMapManager.m */; };
-		B4A4894E1F2B3105003A8C39 /* BWView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A4894D1F2B3105003A8C39 /* BWView.m */; };
 		B4B0A6491F2861ED000E0293 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0A6481F2861ED000E0293 /* main.m */; };
 		B4B0A64C1F2861ED000E0293 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0A64B1F2861ED000E0293 /* AppDelegate.m */; };
-		B4B0A64F1F2861ED000E0293 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0A64E1F2861ED000E0293 /* ViewController.m */; };
 		B4B0A6521F2861ED000E0293 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B0A6501F2861ED000E0293 /* Main.storyboard */; };
 		B4B0A6541F2861ED000E0293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4B0A6531F2861ED000E0293 /* Assets.xcassets */; };
 		B4B0A6571F2861ED000E0293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B0A6551F2861ED000E0293 /* LaunchScreen.storyboard */; };
 		B4B0A6621F2861ED000E0293 /* BWHybridAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0A6611F2861ED000E0293 /* BWHybridAppTests.m */; };
 		B4B0A66D1F2861ED000E0293 /* BWHybridAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0A66C1F2861ED000E0293 /* BWHybridAppUITests.m */; };
+		B4E2CC9E1F3406FB00433DE4 /* BWHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E2CC9D1F3406FB00433DE4 /* BWHomeViewController.m */; };
+		B4E2CCA11F34078600433DE4 /* BWBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E2CCA01F34078600433DE4 /* BWBaseViewController.m */; };
+		B4E2CCA41F3407A600433DE4 /* BWPresentedRNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E2CCA31F3407A600433DE4 /* BWPresentedRNViewController.m */; };
+		B4E2CCAD1F34420700433DE4 /* index.ios.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B4E2CCAC1F34420700433DE4 /* index.ios.bundle */; };
+		B4E2CCB21F34433800433DE4 /* images in Resources */ = {isa = PBXBuildFile; fileRef = B4E2CCB11F34433800433DE4 /* images */; };
+		B4E2CCB41F34436200433DE4 /* index.ios.bundle.meta in Resources */ = {isa = PBXBuildFile; fileRef = B4E2CCB31F34436200433DE4 /* index.ios.bundle.meta */; };
 		DCEBB7BD422B97339E3040A6 /* libPods-BWHybridApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F7B629FCEAF1B621840664 /* libPods-BWHybridApp.a */; };
 /* End PBXBuildFile section */
 
@@ -43,16 +46,10 @@
 		4930BE97306E9B2F040AE11C /* Pods-BWHybridApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BWHybridApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BWHybridApp/Pods-BWHybridApp.release.xcconfig"; sourceTree = "<group>"; };
 		B4A4079B1F2F28D70064B88B /* BWReactNativeBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWReactNativeBridge.h; sourceTree = "<group>"; };
 		B4A4079C1F2F28D70064B88B /* BWReactNativeBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWReactNativeBridge.m; sourceTree = "<group>"; };
-		B4A489491F2B2FD7003A8C39 /* RNTMapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNTMapManager.h; sourceTree = "<group>"; };
-		B4A4894A1F2B2FD7003A8C39 /* RNTMapManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNTMapManager.m; sourceTree = "<group>"; };
-		B4A4894C1F2B3105003A8C39 /* BWView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWView.h; sourceTree = "<group>"; };
-		B4A4894D1F2B3105003A8C39 /* BWView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWView.m; sourceTree = "<group>"; };
 		B4B0A6441F2861ED000E0293 /* BWHybridApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BWHybridApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4B0A6481F2861ED000E0293 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B4B0A64A1F2861ED000E0293 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B4B0A64B1F2861ED000E0293 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B4B0A64D1F2861ED000E0293 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B4B0A64E1F2861ED000E0293 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B4B0A6511F2861ED000E0293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B4B0A6531F2861ED000E0293 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4B0A6561F2861ED000E0293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,6 +60,15 @@
 		B4B0A6681F2861ED000E0293 /* BWHybridAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BWHybridAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4B0A66C1F2861ED000E0293 /* BWHybridAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWHybridAppUITests.m; sourceTree = "<group>"; };
 		B4B0A66E1F2861ED000E0293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4E2CC9C1F3406FB00433DE4 /* BWHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWHomeViewController.h; sourceTree = "<group>"; };
+		B4E2CC9D1F3406FB00433DE4 /* BWHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWHomeViewController.m; sourceTree = "<group>"; };
+		B4E2CC9F1F34078600433DE4 /* BWBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWBaseViewController.h; sourceTree = "<group>"; };
+		B4E2CCA01F34078600433DE4 /* BWBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWBaseViewController.m; sourceTree = "<group>"; };
+		B4E2CCA21F3407A600433DE4 /* BWPresentedRNViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWPresentedRNViewController.h; sourceTree = "<group>"; };
+		B4E2CCA31F3407A600433DE4 /* BWPresentedRNViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWPresentedRNViewController.m; sourceTree = "<group>"; };
+		B4E2CCAC1F34420700433DE4 /* index.ios.bundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.ios.bundle; sourceTree = "<group>"; };
+		B4E2CCB11F34433800433DE4 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		B4E2CCB31F34436200433DE4 /* index.ios.bundle.meta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.ios.bundle.meta; sourceTree = "<group>"; };
 		FAE44A5E39215511EDC6D18F /* Pods-BWHybridApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BWHybridApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BWHybridApp/Pods-BWHybridApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,12 +134,8 @@
 			children = (
 				B4B0A64A1F2861ED000E0293 /* AppDelegate.h */,
 				B4B0A64B1F2861ED000E0293 /* AppDelegate.m */,
-				B4B0A64D1F2861ED000E0293 /* ViewController.h */,
-				B4B0A64E1F2861ED000E0293 /* ViewController.m */,
-				B4A489491F2B2FD7003A8C39 /* RNTMapManager.h */,
-				B4A4894A1F2B2FD7003A8C39 /* RNTMapManager.m */,
-				B4A4894C1F2B3105003A8C39 /* BWView.h */,
-				B4A4894D1F2B3105003A8C39 /* BWView.m */,
+				B4E2CC981F3406DB00433DE4 /* MVC */,
+				B4E2CCA51F341EE000433DE4 /* Resource */,
 				B4A4079B1F2F28D70064B88B /* BWReactNativeBridge.h */,
 				B4A4079C1F2F28D70064B88B /* BWReactNativeBridge.m */,
 				B4B0A6501F2861ED000E0293 /* Main.storyboard */,
@@ -169,6 +171,53 @@
 				B4B0A66E1F2861ED000E0293 /* Info.plist */,
 			);
 			path = BWHybridAppUITests;
+			sourceTree = "<group>";
+		};
+		B4E2CC981F3406DB00433DE4 /* MVC */ = {
+			isa = PBXGroup;
+			children = (
+				B4E2CC991F3406DB00433DE4 /* Base */,
+				B4E2CC9A1F3406DB00433DE4 /* Home */,
+				B4E2CC9B1F3406DB00433DE4 /* PresentedRN */,
+			);
+			path = MVC;
+			sourceTree = "<group>";
+		};
+		B4E2CC991F3406DB00433DE4 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B4E2CC9F1F34078600433DE4 /* BWBaseViewController.h */,
+				B4E2CCA01F34078600433DE4 /* BWBaseViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B4E2CC9A1F3406DB00433DE4 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B4E2CC9C1F3406FB00433DE4 /* BWHomeViewController.h */,
+				B4E2CC9D1F3406FB00433DE4 /* BWHomeViewController.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B4E2CC9B1F3406DB00433DE4 /* PresentedRN */ = {
+			isa = PBXGroup;
+			children = (
+				B4E2CCA21F3407A600433DE4 /* BWPresentedRNViewController.h */,
+				B4E2CCA31F3407A600433DE4 /* BWPresentedRNViewController.m */,
+			);
+			path = PresentedRN;
+			sourceTree = "<group>";
+		};
+		B4E2CCA51F341EE000433DE4 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				B4E2CCB11F34433800433DE4 /* images */,
+				B4E2CCAC1F34420700433DE4 /* index.ios.bundle */,
+				B4E2CCB31F34436200433DE4 /* index.ios.bundle.meta */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		F98BB053B85A161C010DEB69 /* Frameworks */ = {
@@ -291,9 +340,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4E2CCB21F34433800433DE4 /* images in Resources */,
 				B4B0A6571F2861ED000E0293 /* LaunchScreen.storyboard in Resources */,
+				B4E2CCAD1F34420700433DE4 /* index.ios.bundle in Resources */,
 				B4B0A6541F2861ED000E0293 /* Assets.xcassets in Resources */,
 				B4B0A6521F2861ED000E0293 /* Main.storyboard in Resources */,
+				B4E2CCB41F34436200433DE4 /* index.ios.bundle.meta in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,9 +390,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BWHybridApp/Pods-BWHybridApp-resources.sh",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -369,12 +424,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4B0A64F1F2861ED000E0293 /* ViewController.m in Sources */,
+				B4E2CC9E1F3406FB00433DE4 /* BWHomeViewController.m in Sources */,
 				B4B0A64C1F2861ED000E0293 /* AppDelegate.m in Sources */,
 				B4A4079D1F2F28D70064B88B /* BWReactNativeBridge.m in Sources */,
+				B4E2CCA11F34078600433DE4 /* BWBaseViewController.m in Sources */,
+				B4E2CCA41F3407A600433DE4 /* BWPresentedRNViewController.m in Sources */,
 				B4B0A6491F2861ED000E0293 /* main.m in Sources */,
-				B4A4894B1F2B2FD7003A8C39 /* RNTMapManager.m in Sources */,
-				B4A4894E1F2B3105003A8C39 /* BWView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

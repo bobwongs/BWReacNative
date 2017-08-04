@@ -9,8 +9,10 @@
 #import <React/RCTEventEmitter.h>
 #import <React/RCTBridgeModule.h>
 
+extern NSString *const BWReactNativeBridgePassParamsEvent;
+
 @interface BWReactNativeBridge : RCTEventEmitter<RCTBridgeModule>
 
-- (void)sendEventToRN;
+- (void)sendEventToRNWithEventName:(NSString *)eventName params:(NSDictionary *)dict;
 
 @end

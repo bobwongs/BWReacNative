@@ -6,9 +6,9 @@
 //  Copyright © 2017年 BobWongStudio. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BWBaseViewController.h"
 
-@interface ViewController : UIViewController
+@interface BWHomeViewController : BWBaseViewController
 
 @end
 

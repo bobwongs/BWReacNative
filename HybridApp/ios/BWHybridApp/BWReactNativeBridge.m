@@ -8,9 +8,12 @@
 
 #import "BWReactNativeBridge.h"
 
+NSString *const BWReactNativeBridgePassParamsEvent = @"BWReactNativeBridgePassParamsEvent";
+
 @implementation BWReactNativeBridge
 
 + (id)allocWithZone:(NSZone *)zone {
+    // 一定要这样重写，确保调用RN框架时不会闪退
     static id sharedInstance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -23,11 +26,11 @@ RCT_EXPORT_MODULE();
 
 - (NSArray<NSString *> *)supportedEvents
 {
-    return @[@"sayHello"];
+    return @[BWReactNativeBridgePassParamsEvent];
 }
 
-- (void)sendEventToRN {
-    [self sendEventWithName:@"sayHello" body:@"Hello"];
+- (void)sendEventToRNWithEventName:(NSString *)eventName params:(NSDictionary *)dict {
+    [self sendEventWithName:eventName body:dict];
 }
 
 @end
