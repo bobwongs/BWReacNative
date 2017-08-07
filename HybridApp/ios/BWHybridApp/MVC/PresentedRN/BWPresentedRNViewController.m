@@ -14,6 +14,8 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 
+#import <CodePush.h>
+
 @interface BWPresentedRNViewController () <RCTBridgeModule>
 
 @property (strong, nonatomic) BWReactNativeBridge *rnBridge;
